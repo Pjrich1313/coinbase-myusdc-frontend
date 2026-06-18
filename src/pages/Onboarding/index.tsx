@@ -12,7 +12,7 @@ export default function Onboarding() {
     useEffect(() => {
         if (clerkUser?.isLoaded) {
             if (clerkUser.isSignedIn) {
-                navigate('/wallet');
+                navigate('/wallet', { replace: true });
             }
         }
     }, [clerkUser, clerkUser?.isLoaded, navigate]);

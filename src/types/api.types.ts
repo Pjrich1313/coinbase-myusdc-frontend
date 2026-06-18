@@ -10,12 +10,12 @@ export type User = {
         address: string;
         rewards: {
             amount: number;
-            lastUpdated: Date;
+            lastUpdated: string | Date;
         };
     },
     faucet: {
         amount: number,
-        lastRequested: Date
+        lastRequested: string | Date
     }
 }
 
