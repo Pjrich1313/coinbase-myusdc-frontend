@@ -32,7 +32,7 @@ export default function BuyModal({ isOpen, setOpen }: { isOpen: boolean, setOpen
                 {/* AMOUNT INPUT */}
                 <input
                     className={styles.amountInput}
-                    value={amount}
+                    value={amount ?? ''}
                     onChange={handleAmountChange}
                     type="number"
                     placeholder="USD Amount"
