@@ -91,7 +91,7 @@ export default function Send() {
                     <input
                         type="number"
                         placeholder="USDC Amount"
-                        value={amount}
+                        value={amount ?? ''}
                         min={0}
                         step={0.0001}
                         onChange={handleAmountChange}
