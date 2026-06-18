@@ -18,7 +18,11 @@ export default function BuyModal({ isOpen, setOpen }: { isOpen: boolean, setOpen
     useEffect(() => {
         if (isSuccess)
             setOpen(false);
-    }, [isSuccess])
+    }, [isSuccess, setOpen])
+
+    useEffect(() => {
+        if (!isOpen) setAmount(undefined);
+    }, [isOpen])
 
     return (
         <Modal isOpen={isOpen} setOpen={setOpen}>

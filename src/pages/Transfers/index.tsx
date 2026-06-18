@@ -28,6 +28,8 @@ export default function Transfers() {
             <div className={styles.monthContainer}>
                 {isFetching
                     ? skeletonArray
+                    : !data?.data.transfers.length
+                        ? <div className={styles.emptyState}>No transfers yet. Send USDC to see your activity here.</div>
                     : data?.data.transfers.map((transfer, index) => {
                         return (
                             <div key={index} className={styles.transferRow}>

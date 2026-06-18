@@ -33,12 +33,12 @@ const router = createBrowserRouter([
       { path: '/register', element: <Register /> },
       {
         element: <AppLayout />,
-        path: 'wallet',
+        path: '/wallet',
         children: [
-          { path: '/wallet/', element: <Wallet /> },
-          { path: '/wallet/transfers', element: <Transfers /> },
-          { path: '/wallet/profile', element: <Profile /> },
-          { path: '/wallet/send', element: <Send /> },
+          { index: true, element: <Wallet /> },
+          { path: 'transfers', element: <Transfers /> },
+          { path: 'profile', element: <Profile /> },
+          { path: 'send', element: <Send /> },
         ],
       },
     ],

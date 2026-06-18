@@ -6,7 +6,7 @@ import { GetRecentContactsResponse, RecentContact } from "../types/api.types";
 import { avatar01, avatar02, avatar03, avatar04, avatar05 } from "../assets";
 
 export const useGetRecentContacts = () => {
-    const { getToken } = useAuth();
+    const { getToken, isSignedIn, isLoaded } = useAuth();
 
     const placeholderData: RecentContact[] = [
         {
@@ -78,6 +78,7 @@ export const useGetRecentContacts = () => {
         queryKey: ["getRecentContacts"],
         queryFn: async () => getRecentContacts((await getToken()) as string),
         refetchOnWindowFocus: false,
+        enabled: isLoaded && !!isSignedIn,
         initialData: initialData,
         placeholderData: (prevData) => {
             if (prevData?.data.recentContacts.length

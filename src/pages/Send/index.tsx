@@ -25,11 +25,13 @@ export default function Send() {
 
     const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const _amount = parseFloat(e.target.value);
-        setAmount(_amount);
+        setAmount(Number.isFinite(_amount) ? _amount : undefined);
     }
 
     const handleSumbit = (e: React.FormEvent) => {
         e.preventDefault();
+        if (!destination.trim()) return;
+        if (!amount || amount <= 0) return;
         transferAsset();
     }
 
@@ -90,6 +92,7 @@ export default function Send() {
                         type="number"
                         placeholder="USDC Amount"
                         value={amount}
+                        min={0}
                         step={0.0001}
                         onChange={handleAmountChange}
                     />
@@ -102,7 +105,7 @@ export default function Send() {
                 <button
                     type="submit"
                     className={`${styles.bttn} ${styles.dark} ${isPending ? styles.loading : ""}`}
-                    disabled={isPending || !amount || !destination}>
+                    disabled={isPending || !amount || amount <= 0 || !destination.trim()}>
                     Send
                 </button>
             </form>
