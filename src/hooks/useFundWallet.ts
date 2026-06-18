@@ -30,7 +30,7 @@ export const useFundWallet = (asset: string, amount: number) => {
             return toast.error("Requested amount too high");
         if ((user.faucet.amount + amount) > faucetConfig.MAX_TOTAL_AMOUNT)
             return toast.error("Purchase limit reached");
-        if ((user.wallet.usdBalance - amount) < 0)
+        if (user.wallet.usdBalance < amount)
             return toast.error("Insufficient balance");
         if (user.faucet.lastRequested) {
             const now = new Date();
