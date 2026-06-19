@@ -1,4 +1,0 @@
-allowBuilds:
-  '@clerk/shared': set this to true or false
-  esbuild: set this to true or false
-  secp256k1: set this to true or false
